@@ -21,7 +21,7 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4
-    container_name: pgadmin
+    container_name: pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@correo.com
       PGADMIN_DEFAULT_PASSWORD: admin123
@@ -31,16 +31,16 @@ services:
       - db
 
   app:
-    build: . # Permite construir la imagen con docker-compose up --build localmente
-    image: ghcr.io/Michaeldlt1/devops-flask-postgres:2.0.0 
-    container_name: flaskapp
+    build: . 
+    image: ghcr.io/michaeldlt1/devops-flask-postgres:2.0.0 
+    container_name: flaskdev
     ports:
       - "5000:5000"
     environment:
       - APP_NAME=Sistema de Inventario DevOps
       - APP_VERSION=2.0.0
       - DB_HOST=db
-      - DB_NAME=empresa
+      - DB_NAME=inventario
       - DB_USER=admin
       - DB_PASSWORD=admin123
     depends_on:
