@@ -5,14 +5,13 @@ import os
 app = Flask(__name__)
 
 # Configuración obtenida desde variables de entorno
-APP_NAME = os.getenv("APP_NAME")
-APP_VERSION = os.getenv("APP_VERSION")
-
-DB_NAME = os.getenv("DB_NAME")
-DB_USER = os.getenv("DB_USER")
-DB_PASSWORD = os.getenv("DB_PASSWORD")
-DB_HOST = os.getenv("DB_HOST")
-DB_PORT = os.getenv("DB_PORT")
+APP_NAME = os.getenv("APP_NAME", "Inventario API")
+APP_VERSION = os.getenv("APP_VERSION", "1.0.0") 
+DB_NAME = os.getenv("DB_NAME", "inventario")
+DB_USER = os.getenv("DB_USER", "postgres")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "postgres")
+DB_HOST = os.getenv("DB_HOST", "db")
+DB_PORT = os.getenv("DB_PORT", "5432")
 
 
 def get_connection():
